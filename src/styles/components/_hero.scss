@@ -1,0 +1,95 @@
+.hero-section {
+    background: url(../../../public/assets/images/night-view-croped.jpg);
+    background-position: center / center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 50px 60px;
+    margin-top: 0px;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+
+    &::after {
+        content: '';
+        background: linear-gradient(0deg, rgb(0, 0, 0) 20%, rgba(221, 221, 221, 0) 100%);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        display: block;
+    }
+
+    .inner-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        position: relative;
+        top: 10px;
+        left: 0;
+        transform: translate(0%, -50%);
+        line-height: 1;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+
+        h1 {
+            color: var(--white-color);
+            font-size: 85px;
+            margin: 0;
+            letter-spacing: 5px;
+
+            span {
+                color: var(--orange-color);
+            }
+        }
+
+        h3 {
+            color: var(--foreground);
+            font-size: 45px;
+            margin: 0;
+            font-weight: 500;
+        }
+    }
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Keyframes for glowing effect */
+@keyframes fadeInUp {
+
+    0%,
+    100% {
+        transform: translateY(-100px);
+    }
+
+    50% {
+        transform: translateY(100px);
+    }
+}
+
+/* Keyframes for glowing effect */
+@keyframes glow {
+
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.7);
+    }
+}
