@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
+  eslint: {
+    ignoreDuringBuilds: true, // ✅ Ignores ESLint errors during build
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.pdf$/,

@@ -1,7 +1,6 @@
 import { Akaya_Kanadaka, Josefin_Sans, Leckerli_One } from "next/font/google";
 import Image from "next/image";
 import BreadCrumb from "../shared/components/BreadCrumb";
-import { animatedClass } from "../shared/helper";
 import Slider from "react-slick";
 import React from "react";
 import dwarkaTemple from '../../../public/assets/images/bet-dwarka-2.jpg'

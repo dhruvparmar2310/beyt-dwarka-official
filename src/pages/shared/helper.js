@@ -1,1 +1,0 @@
-export const animatedClass = 'wow animate__animated'

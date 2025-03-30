@@ -1,7 +1,6 @@
 import { Leckerli_One, Akaya_Kanadaka, Josefin_Sans } from "next/font/google";
 import Image from "next/image";
 import BreadCrumb from "../shared/components/BreadCrumb";
-import { animatedClass } from "../shared/helper";
 import Slider from "react-slick";
 import React from "react";
 import { Col, Row } from "react-bootstrap";

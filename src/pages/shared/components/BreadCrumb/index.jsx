@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
 
 const ubuntu = Ubuntu({ subsets: ['latin'], weight: ['500'], style: ['normal'] })
-const BreadCrumb = ({ title, link, current }) => {
+const BreadCrumb = ({ title = "Home", link = "/", current = "Current Page" }) => {
     return (
         <>
             <div className={`breadcrumbContent container mt-5`}>
