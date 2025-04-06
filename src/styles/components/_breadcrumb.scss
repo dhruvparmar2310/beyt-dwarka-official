@@ -1,56 +1,25 @@
-.breadcrumbContent {
-    padding: 100px 0;
-    padding-bottom: 0;
-    background: var(--background);
+.breadcrumb-section {
+    padding-top: 110px;
+    font-family: "Inter", serif;
+    font-weight: 600;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 
-    .breadcrumb {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: start !important;
-
-        .breadcrumbItem {
-            a {
-                display: flex;
-                flex-wrap: nowrap;
-                text-decoration: none !important;
-                font-weight: 500;
-                letter-spacing: 0.8px;
-                color: var(--primary-color);
-                font-style: italic;
-
-                &:hover {
-                    color: var(--primary-dark);
-                }
-            }
-
-        }
-
-        .currentPage {
-            color: var(--secondary-400);
-            font-style: italic;
-            font-weight: 500;
-            letter-spacing: 0.8px;
-        }
+    a {
+        text-decoration: none;
+        color: var(--primary-color);
     }
 }
 
-// very large display
-@media (min-width: 1400px) and (max-width: 1950px) {
-    .breadcrumbContent {
-        margin-top: 6rem !important;
-        padding: 40px;
-
-        .breadcrumbItem,
-        .currentPage {
-            font-size: 1.8rem !important;
-        }
+@media (min-width: 1400px) and (max-width: 2000px) {
+    .breadcrumb-section {
+        padding-top: 180px;
+        font-size: 20px;
     }
 }
 
 @media (max-width: 576px) {
-    .breadcrumbContent {
-        padding: 20px !important;
-        margin-top: 4.2rem !important;
-        padding-bottom: 0 !important;
+    .breadcrumb-section {
+        padding-top: 90px;
     }
 }

@@ -119,8 +119,9 @@ header {
     z-index: 1000;
 
     &.scrolled {
+        background: #fff;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        backdrop-filter: blur(20px);
+        // backdrop-filter: blur(20px);
 
         nav {
             padding: 5px 20px;
@@ -158,7 +159,7 @@ header {
                 position: relative;
 
                 a {
-                    color: white;
+                    color: #000;
                     text-decoration: none;
                     padding: 10px 15px;
                     display: block;

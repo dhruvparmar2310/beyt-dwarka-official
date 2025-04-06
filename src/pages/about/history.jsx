@@ -2,14 +2,31 @@ import { Leckerli_One, Akaya_Kanadaka, Josefin_Sans } from "next/font/google";
 import Image from "next/image";
 import BreadCrumb from "../shared/components/BreadCrumb";
 import Slider from "react-slick";
-import React from "react";
-import dwarkaTemple from '../../../public/assets/images/gallery/images/Dwarka Temple HD Picture.jpeg'
+import React, { useRef } from "react";
+import dwarkaTemple from '../../../public/assets/images/gallery/images/img1.jpg'
+import img2 from '../../../public/assets/images/gallery/images/img2.jpg'
+import img3 from '../../../public/assets/images/gallery/images/img6.jpeg'
+import img4 from '../../../public/assets/images/gallery/images/img4.jpeg'
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+// import required modules
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
 
 const LO_Font = Leckerli_One({ subsets: ['latin'], weight: ['400'] })
 const Akaya_Kanadaka_Font = Akaya_Kanadaka({ subsets: ['latin'], weight: ['400'] })
 const Josefin_Font = Josefin_Sans({ subsets: ['latin'], weight: ['400', '500'], style: ['normal'] })
-
 export default function History () {
+    const progressCircle = useRef(null);
+    const progressContent = useRef(null);
+    const onAutoplayTimeLeft = (s, time, progress) => {
+        progressCircle.current.style.setProperty('--progress', 1 - progress);
+        progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+    };
+
     const config = {
         imageBaseUrl: '/assets/images/',
         sliderImages: [
@@ -48,17 +65,54 @@ export default function History () {
     };
     return (
         <>
-            <BreadCrumb title={'Home | PhysioTrends'} link={'Home'} current={'About - History'} />
+            <BreadCrumb basePath={['/']} title='History' />
+            {/* <BreadCrumb title={'Home | PhysioTrends'} link={'Home'} current={'About - History'} /> */}
             <section className='history-section'>
                 <div className='container'>
                     <div className='inner-content'>
                         <h1 className={`sectionTitle`} data-heading='About'>History of Dwarka Temple</h1>
                         <div className="line"></div>
 
-                        <div className="mt-4">
-                            <div className="dwarka-temple wow animate__animated animate__fadeIn animate-slow">
-                                <Image src={dwarkaTemple} quality={100} alt="Dwark Templt" className="img-fluid" />
+                        <Swiper
+                            spaceBetween={30}
+                            centeredSlides={true}
+                            autoplay={{
+                                delay: 5000,
+                                disableOnInteraction: false,
+                            }}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            navigation={true}
+                            modules={[Autoplay, Pagination, Navigation]}
+                            onAutoplayTimeLeft={onAutoplayTimeLeft}
+                            className="mySwiper"
+                        >
+                            {config?.sliderImages?.map((item, i) => {
+                                return (
+                                    <SwiperSlide key={i}>
+                                        <Image
+                                            src={`${config.imageBaseUrl}${config.sliderImages[i]}`}
+                                            quality={100}
+                                            alt="Dwarka temple"
+                                            className="img-fluid"
+                                            width={100}
+                                            height={100}
+                                        />
+                                    </SwiperSlide>
+                                )
+                            })}
+                            <div className="autoplay-progress" slot="container-end">
+                                <svg viewBox="0 0 48 48" ref={progressCircle}>
+                                    <circle cx="24" cy="24" r="20"></circle>
+                                </svg>
+                                <span ref={progressContent}></span>
                             </div>
+                        </Swiper>
+                        <div className="mt-4">
+                            {/* <div className="dwarka-temple wow animate__animated animate__fadeIn animate-slow">
+                                <Image src={dwarkaTemple} quality={100} alt="Dwark Templt" className="img-fluid" />
+                            </div> */}
                             <p className={`${Josefin_Font?.className} wow animate__animated animate__fadeIn animate-slow`}>
                                 The Dwarka Temple, also known as Dwarkadhish Temple, holds a revered place in the hearts of millions of devotees. Believed to have been built by Lord Krishna’s grandson, Vajranabha, this temple marks the ancient city of Dwarka, mentioned in the Mahabharata and Harivamsa Purana. Dwarka is said to have been Lord Krishna's capital, built over land reclaimed from the sea by Lord Vishwakarma at Krishna’s request.
                             </p>

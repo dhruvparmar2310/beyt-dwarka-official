@@ -39,9 +39,6 @@ export default function Home() {
                   </div>
                 </Col>
               </Row>
-              <div className="iframe-section wow animate__animated animate__fadeIn animate-slow">
-                <iframe src="https://www.youtube.com/embed/TMInP9vbdLI?si=8voWUgO0RX5-gDnY&autoplay=0&vq=hd720" title="Legendary Kingdom of Krishna" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" loading="lazy" allowfullscreen></iframe>
-              </div>
           </div>
         </div>
       </section>
