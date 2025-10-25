@@ -1,13 +1,25 @@
 .breadcrumb-section {
     padding-top: 110px;
-    font-family: "Inter", serif;
-    font-weight: 600;
     padding-left: 0 !important;
     padding-right: 0 !important;
 
+    .breadcrumb-item {
+        &::before {
+            color: #000 !important;
+        }
+    }
+
+    span {
+        font-weight: 600 !important;
+        color: #000;
+        letter-spacing: 1px;
+    }
+
     a {
+        font-weight: 600 !important;
         text-decoration: none;
-        color: var(--primary-color);
+        color: var(--secondary-color);
+        letter-spacing: 1px;
     }
 }
 

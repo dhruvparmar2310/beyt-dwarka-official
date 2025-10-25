@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import mainLogo from '../../../../../public/assets/images/main-logo-1.png'
+import mainLogo from '../../../../../public/assets/images/logo-2.png'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { Leckerli_One, Pacifico } from 'next/font/google'
+import { Courgette, Leckerli_One, Pacifico } from 'next/font/google'
 import { useRouter } from 'next/router'
 
-const LO_Font = Leckerli_One({ subsets: ['latin'], weight: ['400'] })
+const Courgette_Font = Courgette({ subsets: ['latin'], weight: ['400'] })
 
 const Header = () => {
     const router = useRouter()
@@ -40,49 +40,49 @@ const Header = () => {
                     </label>
                     <ul>
                         <li>
-                            <Link href={'/'} className={`${router?.route === '/' && 'active'}`} onClick={(e) => handleClick(e, '/')}>Home</Link>
+                            <Link href={'/'} className={`${router?.route === '/' && 'active'} ${Courgette_Font?.className}`} onClick={(e) => handleClick(e, '/')}>Home</Link>
                         </li>
-                        <li className="dropdown">
+                        {/* <li className={`dropdown ${Courgette_Font?.className}`}>
                             <a href="#" className={`${router?.route?.includes('/about') && 'active'}`}>About Us ▾</a>
-                            <ul className="dropdown-menu">
+                            <ul className={`dropdown-menu`}>
                                 <li>
-                                    <Link href={'/about/history'} className={`${router?.route?.includes('/about/history') && 'active'}`} onClick={(e) => handleClick(e, '/about/history')}>History</Link>
+                                    <Link href={'/about/history'} className={`${Courgette_Font?.className} ${router?.route?.includes('/about/history') && 'active'}`} onClick={(e) => handleClick(e, '/about/history')}>History</Link>
                                 </li>
                                 <li>
-                                    <Link href={'/about/architecture'} className={`${router?.route?.includes('/about/architecture') && 'active'}`} onClick={(e) => handleClick(e, '/about/architecture')}>Architecture</Link>
+                                    <Link href={'/about/architecture'} className={`${Courgette_Font?.className} ${router?.route?.includes('/about/architecture') && 'active'}`} onClick={(e) => handleClick(e, '/about/architecture')}>Architecture</Link>
                                 </li>
                                 <li>
-                                    <Link href={'/about/festivals'} className={`${router?.route?.includes('/about/festivals') && 'active'}`} onClick={(e) => handleClick(e, '/about/festivals')}>Festivals</Link>
+                                    <Link href={'/about/festivals'} className={`${Courgette_Font?.className} ${router?.route?.includes('/about/festivals') && 'active'}`} onClick={(e) => handleClick(e, '/about/festivals')}>Festivals</Link>
                                 </li>
                             </ul>
-                        </li>
-                        <li className="dropdown">
-                            <a href="#">Beyt Dwarka ▾</a>
-                            <ul className="dropdown-menu">
+                        </li> */}
+                        <li className={`${Courgette_Font?.className}`}>
+                            <Link href="/beyt-dwarka" className={`${router?.route === '/beyt-dwarka' && 'active'} ${Courgette_Font?.className}`} onClick={(e) => handleClick(e, '/beyt-dwarka')}>Beyt Dwarka</Link>
+                            {/* <ul className="dropdown-menu">
                                 <li>
-                                    <Link href={'/beyt-dwarka/mythological-significance'} className={`${router?.route?.includes('/beyt-dwarka/mythological-significance') && 'active'}`} onClick={(e) => handleClick(e, '/beyt-dwarka/mythological-significance')}>Mythological Significance</Link>
+                                    <Link href={'/beyt-dwarka/mythological-significance'} className={`${Courgette_Font?.className} ${router?.route?.includes('/beyt-dwarka/mythological-significance') && 'active'}`} onClick={(e) => handleClick(e, '/beyt-dwarka/mythological-significance')}>Mythological Significance</Link>
                                 </li>
                                 <li><a href="#">How to Reach</a></li>
                                 <li><a href="#">Attractions</a></li>
-                            </ul>
+                            </ul> */}
                         </li>
-                        <li className="dropdown">
+                        <li className={`dropdown ${Courgette_Font?.className}`}>
                             <a href="#">Services ▾</a>
                             <ul className="dropdown-menu">
                                 <li><a href="#">Dwaja Booking</a></li>
                                 <li><a href="#">Live Darshan</a></li>
-                                <li><a href="#">Accommodation</a></li>
+                                <li><a href="#">Gallery</a></li>
                             </ul>
                         </li>
-                        <li className="dropdown">
+                        {/* <li className={`dropdown ${Courgette_Font?.className}`}>
                             <a href="#">Tourist Guide ▾</a>
                             <ul className="dropdown-menu">
                                 <li><a href="#">Gallery</a></li>
                                 <li><a href="#">Nearby Places</a></li>
                                 <li><a href="#">Temple Timings</a></li>
                             </ul>
-                        </li>
-                        <li><a href="#">Contact Us</a></li>
+                        </li> */}
+                        <li><a href="/contact-us" className={` ${Courgette_Font?.className}`}>Contact Us</a></li>
                     </ul>
                 </nav>
             </header>

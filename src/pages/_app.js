@@ -1,12 +1,17 @@
 import "@/styles/globals.css";
 import "@/styles/main.scss"
 import Header from "./shared/components/Header";
-import { lazy, useEffect } from "react";
+import { lazy, useEffect, useState } from "react";
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Dynamically import WOW.js to disable SSR
 import 'animate.css';
+import { useRouter } from "next/router";
+import LoadingScreen from "./shared/components/LoadingScreen";
 export default function App({ Component, pageProps }) {
+  const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
+
   useEffect(() => {
     require('bootstrap/dist/css/bootstrap.min.css')
     require("bootstrap/dist/js/bootstrap.bundle.min.js")
@@ -26,8 +31,30 @@ export default function App({ Component, pageProps }) {
       wow.init();
     }
   }, [])
+
+  useEffect(() => {
+    const handleRouteChangeStart = () => {
+      setIsLoading(true) 
+      document.body.classList.add("no-scroll")
+    }
+    const handleRouteChangeComplete = () => {
+      setTimeout(() => {
+        setIsLoading(false)
+        document.body.classList.remove("no-scroll")
+      }, 500)
+    }
+
+    router.events.on("routeChangeStart", handleRouteChangeStart);
+    router.events.on("routeChangeComplete", handleRouteChangeComplete);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChangeStart);
+      router.events.off("routeChangeComplete", handleRouteChangeComplete);
+    };
+  }, [router.events])
   return (
     <>
+     {isLoading && <LoadingScreen className={isLoading ? "logoLoading" : ""} />}
       <Header />
       <Component {...pageProps} />
     </>

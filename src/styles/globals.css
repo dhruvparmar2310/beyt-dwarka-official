@@ -2,17 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 @import 'animate.css';
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Anton+SC&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Marko+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 :root {
   --background: #dbbd77;
-  --foreground: #171717;
+  --foreground: #d30d0d;
   --white-color: #fff;
-  --orange-color: #ff7801;
-  --anton-font: "Anton SC", sans-serif;
-  --inter-font: "Inter", sans-serif;
-  --josefin-font: "Josefin Sans", sans-serif;
-  --ms-font: "Marko One", serif;
+  --orange-color: #ff5512;
   --primary-color: #875f3b;
   --primary-light: #bd8453;
   --secondary-color: #c7682d;
@@ -36,7 +31,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 0;
   background-color: var(--primary-color);
   border-radius: 0.5rem;
 }
@@ -59,25 +54,12 @@ section {
 
   .sectionTitle {
     text-align: left;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 500;
     line-height: 1.2;
-    color: var(--primary-color);
-    letter-spacing: 1.5px;
-    font-family: var(--ms-font);
-
-    &::before {
-      content: attr(data-heading);
-      display: block;
-      position: relative;
-      top: 5px;
-      font-size: 25px;
-      font-weight: 500 !important;
-      color: var(--foreground);
-      text-transform: capitalize;
-      text-shadow: none;
-      letter-spacing: 0.5px;
-    }
+    font-family: 'Courgette', cursive;
+    border-left: 5px solid var(--orange-color);
+    padding: 20px 30px;
   }
 }
 
@@ -91,11 +73,10 @@ section {
 /* Keyframes for rotation */
 @keyframes rotatePattern {
   0% {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
- 

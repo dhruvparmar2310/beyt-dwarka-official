@@ -14,8 +14,8 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "@react-three/drei": "^10.0.6",
-    "@react-three/fiber": "^9.1.2",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.3.3",
     "class-variance-authority": "^0.7.1",
@@ -33,7 +33,8 @@
     "swiper": "^11.2.6",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
-    "three": "^0.175.0",
+    "three": "^0.152.2",
+    "three-stdlib": "^2.35.15",
     "wow.js": "^1.2.2"
   },
   "devDependencies": {

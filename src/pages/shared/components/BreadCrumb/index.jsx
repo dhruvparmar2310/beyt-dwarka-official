@@ -1,35 +1,51 @@
 import React from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
+import { Courgette } from 'next/font/google'
 
-const BreadCrumb = ({ title, basePath }) => {
-    const router = useRouter();
-    const pathSegments = router.asPath.split('/').filter(segment => segment); // Remove empty strings
+const Courgette_Font = Courgette({ subsets: ['latin'], weight: ['400'] })
+
+const BreadCrumb = () => {
+    const router = useRouter()
+    const pathSegments = router.asPath.split('/').filter(Boolean) // Filter out empty strings
+
     return (
-        <nav aria-label="breadcrumb" className='breadcrumb-section container'>
+        <nav aria-label="breadcrumb" className="breadcrumb-section container">
             <ul className="breadcrumb">
-                {/* Home Link (Always Clickable) */}
-                <li className="breadcrumb-item">
-                    <Link href="/" title='Home | IJOPT'>Home</Link>
+                {/* Home Link */}
+                <li className={`breadcrumb-item ${Courgette_Font?.className}`}>
+                    <Link href="/" title="Home | Devbhumi Dwarka">
+                        Home
+                    </Link>
                 </li>
 
-                {/* Dynamically Generated Breadcrumb Items */}
+                {/* Dynamic Segments */}
                 {pathSegments.map((segment, index) => {
-                    const href = `/${pathSegments.slice(0, index + 1).join('/')}`;
-                    const formattedText = segment.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
+                    const href = '/' + pathSegments.slice(0, index + 1).join('/')
+                    const formattedText = segment
+                        .replace(/-/g, ' ')
+                        .replace(/\b\w/g, char => char.toUpperCase())
 
-                    // Make link clickable only if the route exists in basePath
-                    const isClickable = basePath?.some(path => path.startsWith(href));
+                    const isLast = index === pathSegments.length - 1
 
                     return (
-                        <li key={index} className="breadcrumb-item">
-                            {isClickable ? <Link href={href}>{formattedText}</Link> : <span title={title}>{formattedText}</span>}
+                        <li
+                            key={index}
+                            className={`breadcrumb-item ${Courgette_Font?.className} ${isLast ? 'active' : ''
+                                }`}
+                            title={formattedText + ' | ' + 'Devbhumi Dwarka'}
+                        >
+                            {isLast ? (
+                                <span title={formattedText + ' | ' + 'Devbhumi Dwarka'}>{formattedText}</span>
+                            ) : (
+                                <Link href={href}>{formattedText}</Link>
+                            )}
                         </li>
-                    );
+                    )
                 })}
             </ul>
         </nav>
-    );
-};
+    )
+}
 
 export default BreadCrumb
