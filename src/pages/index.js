@@ -9,11 +9,6 @@ import dynamic from "next/dynamic";
 
 const Courgette_Font = Courgette({ subsets: ['latin'], weight: ['400'] })
 
-  // Load component without SSR
-const LordKrishnaCanvas = dynamic(() => import("./shared/components/LordKrishnaCanvas"), {
-  ssr: false,
-});
-
 export default function Home() {
   return (
     <main>
